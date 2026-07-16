@@ -1,0 +1,10 @@
+[project]
+name = "transformer"
+version = "0.1.0"
+description = "Jupyter notebooks exploring language models — from bigram to GPT"
+requires-python = ">=3.11"
+dependencies = [
+    "jupyter>=1.1.1",
+    "numpy>=2.4.6",
+    "torch>=2.13.0",
+]
