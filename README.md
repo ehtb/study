@@ -4,6 +4,7 @@ A collection of Jupyter notebooks exploring how language models work — from th
 
 | Notebook | Description |
 |----------|-------------|
+| [neural_net/notebook.ipynb](neural_net/notebook.ipynb) | **Building a Neural Network from Scratch** — from derivatives to a working multi-layer perceptron with automatic differentiation, backpropagation, and training optimizations, using only pure Python |
 | [transformer/notebook.ipynb](transformer/notebook.ipynb) | **Building a Transformer from Scratch** — step-by-step from a bigram model to a full GPT architecture in 6 incremental steps, training on tiny Shakespeare |
 | [finetuning/notebook.ipynb](finetuning/notebook.ipynb) | **Fine-Tuning with LoRA and DPO** — adapt a pretrained model (TinyLlama 1.1B) using parameter-efficient finetuning and preference optimization, runnable on a MacBook |
 
