@@ -1,3 +1,8 @@
+# Transformer Notebooks
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+
 A collection of Jupyter notebooks exploring how language models work — from the ground up. Each notebook is self-contained with explanations, code, and runnable examples.
 
 ## The journey
@@ -42,3 +47,15 @@ uv run jupyter notebook
 ```
 
 Then open any notebook and run all cells.
+
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+Inspired by Andrej Karpathy's educational approach to neural networks and the broader ML community's commitment to accessible education.
