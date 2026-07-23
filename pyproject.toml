@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
-    { name = "Edo", email = "i@edo.me" }
+    { name = "Edo Balvers", email = "i@edo.me" }
 ]
 keywords = ["machine-learning", "transformers", "language-models", "jupyter", "educational"]
 classifiers = [
