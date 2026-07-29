@@ -1,14 +1,14 @@
 [project]
 name = "transformer"
 version = "0.1.0"
-description = "Jupyter notebooks exploring language models — from bigram to GPT"
+description = "Machine learning from first principles — GPT, recommendation engines, and beyond, built from scratch in Jupyter notebooks"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
     { name = "Edo Balvers", email = "i@edo.me" }
 ]
-keywords = ["machine-learning", "transformers", "language-models", "jupyter", "educational"]
+keywords = ["machine-learning", "deep-learning", "transformers", "language-models", "recommendation-systems", "reinforcement-learning", "jupyter", "educational"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Education",
@@ -27,6 +27,7 @@ dependencies = [
     "numpy>=2.4.6",
     "peft>=0.19.1",
     "scikit-learn>=1.4.0",
+    "tiktoken>=0.13.0",
     "torch>=2.13.0",
     "transformers>=5.14.0",
     "trl>=1.8.0",
@@ -37,6 +38,7 @@ project-includes = [
     "**/*.py*",
     "**/*.ipynb",
 ]
+search-path = ["lab"]
 
 [project.urls]
 Repository = "https://github.com/ehtb/study"

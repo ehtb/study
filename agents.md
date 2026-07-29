@@ -11,16 +11,28 @@ The goal is **understanding**, not production code. Clarity beats cleverness. Ex
 
 ```
 notebooks/
-├── neural_net.ipynb      # 1. Autograd engine, backprop, MLP (pure Python)
-├── embeddings.ipynb      # 2. First language model, PyTorch tensors
-├── transformer.ipynb     # 3. Attention mechanism, full GPT
-├── tokenizer.ipynb       # 4. Byte-Pair Encoding from scratch
-└── finetuning.ipynb      # 5. LoRA, SFT, DPO on TinyLlama
+├── foundational/
+│   ├── foundations.ipynb     # 0. ML basics, gradient descent, linear/logistic regression
+│   └── neural_net.ipynb      # 1. Autograd engine, backprop, MLP (pure Python)
+└── gpt/
+    ├── embeddings.ipynb      # 2. First language model, PyTorch tensors
+    ├── transformer.ipynb     # 3. Attention mechanism, full GPT
+    │
+    │   # Going further — independent of each other, each builds on the core path:
+    ├── scaling.ipynb         # GPU training, checkpoints, scaling up
+    ├── modern_gpt.ipynb      # RoPE, RMSNorm, Flash Attention, GQA, KV cache
+    ├── bpe_tokenizer.ipynb   # Byte-Pair Encoding from scratch (pure Python)
+    └── finetuning.ipynb      # LoRA, SFT, DPO on TinyLlama
 
-input.txt                 # tiny Shakespeare corpus (used by notebooks 2-3)
+data/
+└── tinyshakespeare.txt   # tiny Shakespeare corpus (~1.1MB, 65 unique chars)
+
+lab/
+├── gpt_train_v1.py       # Shakespeare training loop as a command-line script
+└── gpt_train_v2.py       # + cosine LR schedule, gradient clipping, smol-smoltalk
 ```
 
-**The notebooks form one continuous narrative.** Each builds on the last, replacing one abstraction with something concrete. Read them in order.
+**The core notebooks (0–3) form one continuous narrative.** Each builds on the last, replacing one abstraction with something concrete. Read them in order. The "going further" notebooks are independent of each other — each picks up where notebook 3 leaves off and goes deeper on a specific topic.
 
 ## Core principles
 
@@ -66,7 +78,7 @@ Avoid:
   - Connection to previous notebooks
   - A "what we learned" summary at the end
 - **Verify all claims.** If you state a formula or identity, show it's true with code
-- **Keep the same training data.** Notebooks 2-3 use `input.txt` (tiny Shakespeare) so losses are directly comparable
+- **Keep the same training data.** Notebooks 2-3 use `data/tinyshakespeare.txt` (tiny Shakespeare) so losses are directly comparable
 - **Reproducibility.** Use fixed random seeds (`torch.manual_seed(1337)` is the convention from Karpathy)
 
 ### When explaining concepts
@@ -98,11 +110,14 @@ Every notebook should have:
 
 ### Adding a new notebook
 
-1. Follow the numbered sequence and narrative structure
-2. Start with a clear problem statement (what limitation of the previous notebook are we fixing?)
-3. Include a "Your turn" section at the end with exercises
-4. Update `README.md` to describe the notebook in the journey section
-5. Use the existing notebooks as templates for style and structure
+**Core path (0–3):** follow the numbered sequence. Start with a clear problem statement (what limitation of the previous notebook are we fixing?). The narrative is linear — each notebook must make sense as the next step from the one before it.
+
+**Going further:** no ordering constraint between these notebooks, but each must build on the core path (not on each other). Start with an intro that explains what knowledge from the core path the reader needs.
+
+For both types:
+1. Include a "Your turn" section at the end with exercises
+2. Update `README.md` to describe the notebook in the appropriate section
+3. Use the existing notebooks as templates for style and structure
 
 ### Explaining a concept to the user
 
@@ -129,7 +144,8 @@ Every notebook should have:
 ## File locations
 
 - **Notebooks:** `notebooks/*.ipynb`
-- **Training data:** `input.txt` (tiny Shakespeare, ~1.1MB, 65 unique chars)
+- **Training data:** `data/tinyshakespeare.txt` (tiny Shakespeare, ~1.1MB, 65 unique chars)
+- **Lab scripts:** `lab/gpt_train_v1.py` (Shakespeare, char tokenizer), `lab/gpt_train_v2.py` (smol-smoltalk, tiktoken, cosine LR + grad clipping)
 - **Dependencies:** `pyproject.toml` (managed with `uv`)
 - **Project docs:** `README.md`, `CONTRIBUTING.md`, `LICENSE`, `CODE_OF_CONDUCT.md`
 
@@ -142,7 +158,7 @@ This project uses Claude's file-based memory system. Key things worth rememberin
 - **Current progress** — has studied neural_net and embeddings notebooks, can quiz them on those concepts
 
 When the user asks questions about concepts:
-1. Check which notebook covers it
+1. Check which notebook covers it — core path (foundations → neural_net → embeddings → transformer) or a going-further notebook
 2. Read that notebook if not already in context
 3. Answer based on what that notebook actually teaches, not from general knowledge
 4. Quiz them to verify understanding (they explicitly requested this pattern)

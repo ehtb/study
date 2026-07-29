@@ -16,6 +16,7 @@ wheels/
 # Training outputs
 *-output/
 *-adapter/
+lab/checkpoints/
 
 # OS metadata
 .DS_Store
