@@ -11,13 +11,13 @@ A hands-on study of machine learning concepts, built from scratch.
 
 The prerequisites for every course. Two notebooks that build the shared mechanics from scratch in pure Python, before any domain-specific content appears.
 
-#### [ML Foundations](notebooks/foundational/1_foundations.ipynb) — The Learning Paradigm
+#### 1. [ML Foundations](notebooks/foundational/1_foundations.ipynb) — The Learning Paradigm
 
 Establish the vocabulary and mechanics of machine learning before any neural networks appear. Train a linear model on toy house prices using gradient descent written in pure Python. See overfitting happen in real time with a polynomial model, then measure it with a train/val split. Finish with logistic regression and binary cross-entropy.
 
 **You'll learn:** The four-step training loop (predict, score, assign blame, nudge) that every subsequent notebook reuses. Why gradients are the nudge signal and what their sign and magnitude mean. Why validation loss is the only honest measure of performance. How sigmoid squashes any score to a probability.
 
-#### [Neural Networks](notebooks/foundational/2_neural_net.ipynb) — Autograd and Backpropagation
+#### 2. [Neural Networks](notebooks/foundational/2_neural_net.ipynb) — Autograd and Backpropagation
 
 Build an autograd engine around a single number, derive backpropagation from the chain rule, and train a hand-written MLP to classify two rings of points. Everything after this is the same four-step loop — **predict, score, assign blame, nudge** — applied to bigger models.
 
@@ -94,12 +94,6 @@ Treat each user's watch history as a sequence ordered by time. Predict the next 
 Every recommender faces a bootstrap problem: how do you learn what a new user likes before they've rated anything? How do you surface a new item that has no ratings yet? Build three strategies from scratch — ε-greedy, UCB, and Thompson Sampling — and race them on a simulated engagement environment.
 
 **You'll learn:** Why pure exploitation creates filter bubbles and why pure exploration wastes recommendations. How UCB uses uncertainty as a bonus to direct exploration. How Thompson Sampling frames the problem as Bayesian inference. How the multi-armed bandit is RL with one step — and how it connects to RLHF.
-
----
-
-### Course 3 — Pattern Recognition *(coming soon)*
-
-Convolutional networks, image classification, and the ideas behind modern vision models — built from scratch, the same way.
 
 ## Lab
 
